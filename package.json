@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compressing": "^1.5.1",
+    "docxtemplater": "^3.17.9",
     "jsonwebtoken": "^8.5.1",
+    "jzip": "^1.0.0",
     "koa": "^2.11.0",
     "koa-body": "^4.1.1",
     "koa-json-error": "^3.1.2",
