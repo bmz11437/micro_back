@@ -39,4 +39,4 @@ app.use(cors());
 app.use(parameter(app));
 routing(app);
 
-app.listen(3001, () => console.log("程序启动在3000端口了"));
+app.listen(2000, () => console.log("程序启动在2000端口了"));
