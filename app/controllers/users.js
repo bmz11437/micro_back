@@ -27,21 +27,14 @@ class UserCtl {
     ctx.body = { token };
   }
   async find(ctx) {
-    ctx.body = await User.find();
+    ctx.body = await User.find({ type: { $nin: "administrator" } });
   }
-  getUserInfo(ctx) {
-    var arg = URL.parse(ctx.url).query;
-    let time = Date.now();
-    // let token = dingtalk.client.getAccessToken();
-    // let jsapi = dingtalk.client.getJSApiTicket();
-    let signature = getSign();
-    ctx.body = {
-      arg,
-      signature,
-      time,
-    };
+  async getUserInfo(ctx) {
+    ctx.body = await User.findById(ctx.state.user._id);
   }
-
+  async updateInfo(ctx) {
+    ctx.body = {};
+  }
   async create(ctx) {
     ctx.verifyParams({
       name: { type: "string", required: true },

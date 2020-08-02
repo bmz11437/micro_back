@@ -9,8 +9,10 @@ const error = require("koa-json-error");
 const routing = require("./routes");
 const { connectionStr } = require("./config");
 
-mongoose.connect(connectionStr, { useNewUrlParser: true }, () =>
-  console.log("MongoDB 连接成功了！")
+mongoose.connect(
+  connectionStr,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => console.log("MongoDB 连接成功了！")
 );
 mongoose.connection.on("error", console.error);
 
